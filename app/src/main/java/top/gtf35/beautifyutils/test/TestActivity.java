@@ -1,11 +1,11 @@
 package top.gtf35.beautifyutils.test;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 
 import top.gtf35.beautifyutils.R;
 
-public class TestActivity extends AppCompatActivity {
+public class TestActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

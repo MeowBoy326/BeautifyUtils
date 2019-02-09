@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
@@ -47,10 +46,6 @@ public class RandomMaskLayout extends FrameLayout {
         initBaseInfo(context);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public RandomMaskLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-    }
 
     /*初始化基础全局变量*/
     private void initBaseInfo(Context context){
