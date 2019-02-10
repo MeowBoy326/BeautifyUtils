@@ -11,5 +11,7 @@ public class TestActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
+        //top.gtf35.beautifyutils.api.tencent.API QQMusicApi = new top.gtf35.beautifyutils.api.tencent.API();
+        //QQMusicApi.search("9420");
     }
 }

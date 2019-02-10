@@ -16,10 +16,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    /*okhttp==>网络请求框架*/
+    implementation 'com.squareup.okhttp3:okhttp:3.13.1'
+    /*Gson==>json解析框架*/
+    implementation 'com.google.code.gson:gson:2.8.5'
+    /*logutils==>自定义日志类*/
+    implementation 'com.apkfuns.logutils:library:1.6.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

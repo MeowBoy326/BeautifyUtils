@@ -3,22 +3,19 @@ package top.gtf35.beautifyutils.widgets;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import top.gtf35.beautifyutils.utils.LogUtils;
 import top.gtf35.beautifyutils.utils.getFromAssets;
+import top.gtf35.beautifyutils.utils.krlog.LogUtils;
 
 /**
  * 作者：gtf35 on 19-2-9 19:16

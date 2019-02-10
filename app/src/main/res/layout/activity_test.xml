@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<top.gtf35.beautifyutils.widgets.MaterialRippleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:tag="水波纹颜色为#ff4081水波纹透明度为15%水波纹褪色时间为7ms背景色为#ff80ab水波纹圆角角度为30设置完成"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <top.gtf35.beautifyutils.widgets.RandomMaskLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher" />
+       <top.gtf35.beautifyutils.widgets.RandomMaskLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerInParent="true">
 
-    </top.gtf35.beautifyutils.widgets.RandomMaskLayout>
+           <ImageView
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:src="@mipmap/ic_launcher" />
 
-</RelativeLayout>
+       </top.gtf35.beautifyutils.widgets.RandomMaskLayout>
+
+       <top.gtf35.beautifyutils.widgets.FilterMenu.FilterMenuLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_centerHorizontal="true"/>
+
+   </RelativeLayout>
+
+
+</top.gtf35.beautifyutils.widgets.MaterialRippleLayout>
