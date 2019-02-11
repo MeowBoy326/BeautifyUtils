@@ -107,6 +107,12 @@ public class MaterialRippleLayout extends FrameLayout {
     private PerformClickEvent pendingClickEvent;
     private PressedEvent pendingPressEvent;
     private boolean hasPerformedLongPress;
+
+    /*在没有子控件的情况下绘制*/
+    private boolean drawAnyway = false;
+    /*不消费事件*/
+    private boolean dontEatEvent = false;
+
     /*
      * Animations
      */
@@ -168,9 +174,20 @@ public class MaterialRippleLayout extends FrameLayout {
         gestureDetector = new GestureDetector(context, longClickListener);
         /*示例TAG设置：水波纹颜色为#ff4081水波纹透明度为15%水波纹褪色时间为7ms背景色为#ff80ab水波纹圆角角度为30设置完成*/
         /*全默认TAG示例：水波纹颜色为0水波纹透明度为0%水波纹褪色时间为0ms背景色为0水波纹圆角角度为0设置完成*/
+        /*内部只能有一个子控件*/
+        /*如果内部有编写不规范的自定义控件，很有可能会让内部控件无法点击，如果遇到了，请在tag最前面加入：忽略子控件点击事件检测*/
+        /*出于各种目的，如果必须让他不消费事件，也就是还要向外传递的话，请在前面加入：不消费事件*/
         /*所有的值为0即为默认，但注意，所有的单位即使为0也不可省略*/
         /*从Tag获取设置*/
         String settings = getTag().toString();
+        if (settings.contains("忽略子控件点击事件检测")) {
+            drawAnyway = true;
+            LogUtils.d("MaterialRippleLayout已开启忽略子控件点击事件检测");
+        }
+        if (settings.contains("不消费事件")) {
+            dontEatEvent = true;
+            LogUtils.d("MaterialRippleLayout已开启不消费事件");
+        }
         LogUtils.d("MaterialRippleLayout的Tag值为" + settings);/*设置水波纹颜色*/
         String color = getStringBetweenString(settings, "水波纹颜色为", "水波纹透明度为");
         LogUtils.d("MaterialRippleLayout的水波纹颜色直接值为" + color);
@@ -266,6 +283,10 @@ public class MaterialRippleLayout extends FrameLayout {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
+        if (drawAnyway) {
+            onTouchEvent(event);
+            return false;
+        }
         return !findClickableViewInChild(childView, (int) event.getX(), (int) event.getY());
     }
 
@@ -359,6 +380,7 @@ public class MaterialRippleLayout extends FrameLayout {
                     }
                     break;
             }
+            if (dontEatEvent) return false;
             return true;
         }
     }
